@@ -17,6 +17,7 @@
     "styled-components": "^5.1.1"
   },
   "devDependencies": {
+    "@storybook/addon-essentials": "^6.0.22",
     "@storybook/react": "^6.0.22",
     "@types/enzyme": "^3.10.7",
     "@types/jest": "^24.9.1",
@@ -29,6 +30,7 @@
     "enzyme-adapter-react-16": "^1.15.5",
     "jest": "^26.4.2",
     "react": "^16.13.1",
+    "react-docgen-typescript": "^1.20.5",
     "react-dom": "^16.13.1",
     "styled-components": "^5.2.0",
     "ts-jest": "^26.4.0",
