@@ -12,5 +12,6 @@ describe('Button', () => {
         const tree = shallow(<Button variant={BUTTON_VARIANT.OUTLINE} />);
 
         expect(tree.prop('variant')).toBe(BUTTON_VARIANT.OUTLINE);
+        expect(true).toBe(false);
     });
 })
