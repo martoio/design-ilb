@@ -9,8 +9,9 @@
     "clean": "rm -rf ./build/",
     "storybook": "start-storybook -p 6006",
     "storybook:export": "build-storybook",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "tdd": "jest --watch"
+    "test": "jest",
+    "tdd": "jest --watch",
+    "prepublish": "npm run build"
   },
   "author": "",
   "license": "ISC",
