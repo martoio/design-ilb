@@ -1,6 +1,15 @@
-import { ThemeProps } from 'styled-components';
+import { DefaultTheme } from 'styled-components';
 
 export * from './__fonts/__fonts';
+
+export interface DesignTheme extends DefaultTheme {
+    colors: {
+        default: string,
+        primary: string,
+        secondary: string,
+        danger: string,
+    }
+}
 
 // Colors
 export const ThemeColors = {
@@ -10,6 +19,6 @@ export const ThemeColors = {
     danger: '#D32F2F',
 };
 
-export const Theme = {
+export const Theme: DesignTheme = {
     colors: ThemeColors,
 };

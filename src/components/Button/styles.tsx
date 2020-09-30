@@ -1,8 +1,8 @@
 import * as React from 'react';
-import styled, {css, ThemeProps} from 'styled-components';
+import styled, {css} from 'styled-components';
 
-import * as Theme from '../../theme';
 import { StyledIcon } from '../Icon/styles';
+import { DesignTheme } from '../../theme';
 
 export enum BUTTON_SIZE {
     SM='6px 12px',
@@ -10,18 +10,83 @@ export enum BUTTON_SIZE {
     LG='11px 22px'
 }
 
+export enum BUTTON_COLOR {
+    DEFAULT='default',
+    PRIMARY='PRIMARY',
+    SECONDARY='SECONDARY',
+    DANGER='DANGER',
+}
+
 export interface StyledButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     disableShadow?: boolean;
     size?: BUTTON_SIZE;
     startIcon?: string;
     endIcon?: string;
+    color?: BUTTON_COLOR;
+    theme?: DesignTheme;
+}
+
+function getButtonColor(props: StyledButtonProps) {
+    if(props.color && props.color !== BUTTON_COLOR.DEFAULT) {
+        return '#fff';
+    }
+
+    return '#000';
+}
+
+function getButtonBackground(props: StyledButtonProps) {
+    let color = css`
+        background: #E0E0E0;
+        &:hover {
+            background: #AEAEAE;
+        }
+    `;
+
+    switch (props.color) {
+        case BUTTON_COLOR.PRIMARY:
+            color = css`
+                background: ${props.theme.colors.primary};
+                :hover{
+                    background: #0039CB;
+                }
+            `;
+            break;
+        case BUTTON_COLOR.SECONDARY:
+            color = css`
+                background: ${props.theme.colors.secondary};
+                :hover{
+                    background: #1C313A;
+                }
+            `;
+            break;
+        case BUTTON_COLOR.DANGER:
+            color = css`
+                background: ${props.theme.colors.danger};
+                :hover{
+                    background: #9A0007;
+                }
+            `;
+            break;
+        default:
+            break;
+    }
+
+    if (props.disabled) {
+        color = css`
+            &, &:hover {
+                background: #E0E0E0;
+            }
+        `;
+    }
+
+    return color;
 }
 
 export const BaseButton = styled.button<StyledButtonProps>`
-    background: #E0E0E0;
+    ${getButtonBackground};
     display: flex;
     align-items: center;
-    color: ${props => props.disabled ? '#9E9E9E' : props.theme.colors};
+    color: ${getButtonColor};
     font-size: 14px;
     font-weight: 500;
     line-height: 21px;
@@ -32,11 +97,6 @@ export const BaseButton = styled.button<StyledButtonProps>`
     border-radius: 6px;
     transition: all 200ms ease-in-out;
     cursor: ${props => props.disabled ? 'default' : 'pointer'};
-
-    &:hover, &:focus {
-        background: ${props => props.disabled ? '#E0E0E0' : '#AEAEAE'};
-        outline: none;
-    }
 
     ${StyledIcon} {
         margin-left: ${props => props.endIcon ? '8px' : 0};

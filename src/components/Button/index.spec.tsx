@@ -4,7 +4,7 @@ import Adapter from 'enzyme-adapter-react-16';
 
 configure({ adapter: new Adapter() });
 
-import Button, {BUTTON_VARIANT} from './';
+import {Button, BUTTON_VARIANT} from './';
 
 describe('Button', () => {
     it('should show an outline button when variant is not specified', () => {

@@ -1,2 +1,8 @@
-export * from './Button';
-export * from './Icon';
+import * as Button from './Button';
+import * as Icon from './Icon';
+
+
+export {
+    Button,
+    Icon
+};

@@ -11,12 +11,11 @@ export enum BUTTON_VARIANT {
 
 interface ButtonProps extends StyledButtonProps {
     variant?: BUTTON_VARIANT;
-    startIcon?: string;
-    endIcon?: string;
 }
 
 export const Button = function Button(props: ButtonProps) {
     let ButtonComponent: StyledComponent<"button", any, StyledButtonProps> = BaseButton;
+
     if(props.variant === BUTTON_VARIANT.OUTLINE) ButtonComponent = OutlineButton;
 
     if(props.variant === BUTTON_VARIANT.TEXT) ButtonComponent = TextButton;
@@ -29,6 +28,5 @@ export const Button = function Button(props: ButtonProps) {
         </ButtonComponent>
     );
 }
-
 
 export default Button;
