@@ -14,3 +14,4 @@ describe('Button', () => {
         expect(tree.prop('variant')).toBe(BUTTON_VARIANT.OUTLINE);
     });
 })
+

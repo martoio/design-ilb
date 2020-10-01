@@ -45,7 +45,7 @@ function getButtonBackground(props: StyledButtonProps) {
     switch (props.color) {
         case BUTTON_COLOR.PRIMARY:
             color = css`
-                background: ${props.theme.colors.primary};
+                background: ${props.theme?.colors.primary};
                 :hover{
                     background: #0039CB;
                 }
@@ -53,7 +53,7 @@ function getButtonBackground(props: StyledButtonProps) {
             break;
         case BUTTON_COLOR.SECONDARY:
             color = css`
-                background: ${props.theme.colors.secondary};
+                background: ${props.theme?.colors.secondary};
                 :hover{
                     background: #1C313A;
                 }
@@ -61,7 +61,7 @@ function getButtonBackground(props: StyledButtonProps) {
             break;
         case BUTTON_COLOR.DANGER:
             color = css`
-                background: ${props.theme.colors.danger};
+                background: ${props.theme?.colors.danger};
                 :hover{
                     background: #9A0007;
                 }
