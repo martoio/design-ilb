@@ -12,6 +12,7 @@
       "allowSyntheticDefaultImports": true,
       "esModuleInterop": true,
       "strict": true,
+      "baseUrl": "src"
     },
     "include": ["src/**/*"],
     "exclude": [
