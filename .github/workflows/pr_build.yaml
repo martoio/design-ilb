@@ -11,7 +11,7 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 12
-      - run: pwd
+      - run: echo $PWD
       - run: npm ci
       - run: npm test
       - run: npm run build
