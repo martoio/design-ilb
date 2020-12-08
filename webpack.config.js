@@ -17,15 +17,10 @@ module.exports = {
         test: /\.(ts|tsx)$/,
         use: [
           {
-            loader: require.resolve("ts-loader")
+            loader: require.resolve("babel-loader")
           }
         ]
       },
-      {
-        test: /\.scss$/,
-        use: ["style-loader", "css-loader", "sass-loader"],
-        include: path.resolve(__dirname, "./src")
-      }
     ]
   },
   externals: {
